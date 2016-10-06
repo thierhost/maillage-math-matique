@@ -1,0 +1,78 @@
+{% extends "home.html"%}
+
+
+{% block titre%} Maillage Simple  {%endblock%}
+
+{% block container%}
+
+
+	{% if taille is defined %}
+	<!--  Quand on soummet le formulaire ici la taille est disponible       -->	
+	<!--  On va generer un formulaire pour decomposerr la matrice -->
+	<div class="container-fluid">
+		<div class="page-header">
+    			<h1> Maillage simple  de taille {{taille}} </h1>
+          <input type= "hidden" name="taille" value={{taille}}> 
+       </div>
+       <div class="row">
+       <div class="col-md-7">
+          <div class="well bs-component">
+        <canvas id="maillage" width="600" height="600" class="zoomTarget"  >
+
+             	</canvas>
+         </div>
+         </div>
+         <div class="col-md-5">
+           <form method="POST" action="/save" name="form">
+
+          <input type="text"  class="form-control" name="name" placeholder="Nom du fichier">
+           <input type= "hidden" name="tail" value={{taille}}>                 
+          <button type="submit"class="btn btn-primary" >Enregistrer</button>
+        </form>
+        <button class="btn btn-primary" onclick="exportCanvas();">Exporter en image</button>      
+         </div>
+         
+       
+
+      </div>
+    </div>
+    {% else %}
+    <!--  Le  formulaire par defaut à afficher  -->
+
+	<div class="container">
+		<div class="page-header">
+    			<h1>Création d'un maillage simple de taille P</h1> 
+       </div>
+	
+		<div class="row">
+			<div class="col-md-6">
+				<div class="well bs-component">
+                    <form class="form-horizontal" action="" name="maillage" method="POST" >
+					   <div class="form-group">
+                         <label for="text" class="col-md-4 control-label">Taille du maillage</label>
+                            <div class="col-md-6">
+                              <input type="number" min="1"  class="form-control" name="taille" placeholder="Taille du maillage">
+                            </div>              
+                       </div>
+
+                       	<div class="form-group">
+                            <div class="col-md-4 col-md-offset-8">
+                                   
+                             <button type="submit" class="btn btn-primary">Envoyer</button>
+                           </div>
+                      	</div>
+                     </form>
+					
+			</div>
+		</div>
+
+	</div>
+
+</div>
+	
+{%endif%}
+<!--   -->
+
+
+
+{%endblock%}

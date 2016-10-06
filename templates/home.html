@@ -1,0 +1,93 @@
+{% block html_debut %}
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <meta charset="utf-8"/>
+  <META HTTP-EQUIV="Content-Language" CONTENT="FR"/> 
+    <META http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="inputHub"/>
+  <meta name="contactstate" content="SENEGAl"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap/css/bootstrap.css')}}"/>  
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/material-fullpalette.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/material-fullpalette.min.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/material.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/material.min.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/ripples.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/ripples.min.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/roboto.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}"/>
+
+  <title> {% block titre%} Titre de la pge {%endblock%} </title> 
+
+   <script type="text/javascript">function onclick_page(event)
+{
+  var x = event.clientX;
+  var y = event.clientY;
+  alert('Vous avez cliqué au point de coordonnés: ' + x + ', ' + y );
+}</script>
+
+
+ </head>  
+ <body >
+  
+  {%endblock%}
+  
+  {%block menu %}
+
+<div class="navbar navbar-material-light-blue-300">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-material-light-blue-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">Analyse  Numérique</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-material-light-blue-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+      <li ><a href="#"><span class="glyphicon glyphicon-user"></span>THIAM THIERNO</a></li>
+      
+  </ul>
+  </div>
+</div>
+{%endblock%}
+
+{% block container%}
+
+{%endblock%}
+ 
+
+{% block html_fin %}
+ <script type="text/javascript" src="{{url_for("static",filename="jquery/jquery.js")}}"></script>
+ <script type="text/javascript" src="{{url_for("static",filename="bootstrap/js/bootstrap.js")}}"></script>
+ <script type="text/javascript" src="{{url_for("static",filename="dist/js/material.js")}}"></script>
+ <script type="text/javascript" src="{{url_for("static",filename="dist/js/material.min.js")}}"></script>
+ <script type="text/javascript" src="{{url_for("static",filename="dist/js/ripples.js")}}"></script>
+ <script type="text/javascript" src="{{url_for("static",filename="dist/js/ripples.min.js")}}"></script>
+<script type="text/javascript" src="{{url_for("static",filename="script.js")}}"></script>
+<script type="text/javascript" src="{{url_for("static",filename="jquery.zoomooz.min.js")}}"></script>
+
+
+ <script type="text/javascript">
+
+$(function(){
+$("div.alert").hide("slow").delay(10000).show("slow");
+
+$(document).ready(function() {
+    $("maillage").click(function(evt) {
+        $(this).zoomTo({targetsize:0.75, duration:600});
+        evt.stopPropagation();
+    });
+});
+
+
+});
+ </script>
+
+ </body>
+ </html>
+{%endblock%}
